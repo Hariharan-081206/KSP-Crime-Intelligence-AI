@@ -1,0 +1,6 @@
+zcatalyst-sdk==1.4.0
+numpy
+# main.py imports `from sentence_transformers import SentenceTransformer`,
+# which pulls in torch (~2 GB). See DEPLOY.md: this is a size / cold-start
+# risk on a Basic I/O stack and is the main AppSail migration candidate.
+sentence-transformers

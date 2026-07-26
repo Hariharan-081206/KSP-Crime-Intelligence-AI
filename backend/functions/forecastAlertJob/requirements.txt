@@ -1,0 +1,6 @@
+zcatalyst-sdk==1.4.0
+# config.py does `from dotenv import load_dotenv`; dotenv was neither
+# vendored nor declared, so the module failed to import.
+python-dotenv
+# forecast.py does `import requests` to invoke predictforecast over HTTP.
+requests

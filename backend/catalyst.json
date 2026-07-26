@@ -1,0 +1,20 @@
+{
+  "functions": {
+    "targets": [
+      "scrb-backend",
+      "forecastAlertJob",
+      "predictforecast",
+      "predictexplain",
+      "build_forecast_results",
+      "build_case_documents",
+      "generate_embeddings",
+      "search_documents"
+    ],
+    "ignore": [],
+    "source": "functions"
+  },
+  "apig": {
+    "rules": "catalyst-user-rules.json",
+    "enabled": true
+  }
+}

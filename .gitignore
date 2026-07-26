@@ -1,0 +1,105 @@
+# =============================================================================
+# SCRB Crime Intelligence — repository ignore rules
+# =============================================================================
+# backend/.gitignore and frontend/.gitignore still apply within their own
+# directories and carry rules specific to each (vendored Python wheels, Vite
+# output). This file is the repo-wide baseline and is deliberately written to
+# stand on its own: if a nested file is ever deleted, secrets stay excluded.
+# =============================================================================
+
+# --- Secrets -----------------------------------------------------------------
+# Unanchored, so this matches at EVERY depth — backend/functions/*/.env included.
+# Five live .env files exist in this tree and each one carries the QuickML
+# endpoint key.
+.env
+.env.*
+
+# Two exceptions, both verified secret-free and both required in the repo:
+#   .env.example    documents which keys a deployment must set
+#   .env.production Vite build-time config; sets VITE_API_BASE_URL=/api and
+#                   nothing else. Baked into the client bundle at build time, so
+#                   a secret here would ship to every browser anyway.
+!.env.example
+!.env.production
+
+# Credential material of any kind.
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+
+# --- Catalyst ----------------------------------------------------------------
+# Machine- and project-specific CLI binding (project id, environment id, DC).
+# Recreated by `catalyst init` / `catalyst project:use`.
+.catalystrc
+
+# Local build staging produced by `catalyst deploy`. It is a COPY of each
+# function including its .env, so it must never be tracked.
+.build/
+
+# `catalyst iac:export` output — the entire project as one archive, every
+# function's .env inside it. Audit finding P0-2 was exactly this: keys shipped
+# inside root .zip archives. Extract what you need, then delete the archive.
+*.zip
+Project-Rainfall-Development/
+
+# --- Dependencies ------------------------------------------------------------
+node_modules/
+jspm_packages/
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/install-state.gz
+
+# Python function dependencies. Catalyst installs from requirements.txt at
+# deploy time; source + requirements.txt is what belongs in git.
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.dist-info/
+venv/
+.venv/
+
+# --- Build output ------------------------------------------------------------
+dist/
+dist-ssr/
+build/
+*.local
+
+# --- Logs & diagnostics ------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+catalyst-debug.log*
+
+# --- Editors & OS ------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Archived git history ----------------------------------------------------
+# backend/ and frontend/ were separate repos before this one. Their histories
+# were renamed aside rather than deleted, so they are recoverable until you
+# choose to remove them.
+.git-archived-*/
+
+# --- Test & tooling caches ---------------------------------------------------
+coverage/
+.nyc_output/
+.cache/
+.temp/
+.eslintcache

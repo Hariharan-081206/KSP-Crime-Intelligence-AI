@@ -1,0 +1,8 @@
+{
+  "name": "scrb-crime-intelligence",
+  "description": "SCRB Crime Intelligence Portal — Karnataka CID role-gated crime-intelligence dashboard (chat, crime map, criminal network, alerts, forecasts, case support, audit).",
+  "version": "1.1.0",
+  "homepage": "/__catalyst/auth/login",
+  "login_redirect": "index.html",
+  "404": "index.html"
+}

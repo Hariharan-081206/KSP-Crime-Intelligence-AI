@@ -1,0 +1,28 @@
+[
+  {
+    "name": "backend-gateway",
+    "source_endpoint": "/api/{path:(.*)}",
+    "target_endpoint": "/server/scrb-backend/{path}",
+    "target": "advancedio",
+    "method": "ANY",
+    "throttling": {
+      "overall": {},
+      "ip": {}
+    },
+    "target_id": "54650000000257004",
+    "authentication": [
+      "CatalystUserManagement"
+    ]
+  },
+  {
+    "name": "spa-client",
+    "source_endpoint": "/app/{path:(.*)}",
+    "target_endpoint": "/app/{path}",
+    "target": "client",
+    "method": "ANY",
+    "throttling": {
+      "overall": {},
+      "ip": {}
+    }
+  }
+]

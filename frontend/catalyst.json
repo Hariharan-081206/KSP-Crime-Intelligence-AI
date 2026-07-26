@@ -1,0 +1,8 @@
+{
+  "client": {
+    "source": "dist",
+    "ignore": [
+      "node_modules/"
+    ]
+  }
+}

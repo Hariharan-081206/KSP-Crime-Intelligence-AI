@@ -1,0 +1,15 @@
+zcatalyst-sdk==1.4.0
+# main.py line 6 does `from dotenv import load_dotenv`. python-dotenv is NOT a
+# dependency of zcatalyst-sdk (that SDK declares only requests + typing-extensions),
+# and nothing is vendored into this function directory -- so without this line the
+# function raised ModuleNotFoundError: No module named 'dotenv' at import time, on
+# every invocation, before reaching the handler.
+#
+# That took the whole early-warning pipeline down: forecastAlertJob POSTs to
+# /server/predictforecast/execute, so a dead predictforecast means no rows in
+# `earlywarnings` and GET /alerts/active answers [] forever.
+python-dotenv
+# main.py line 2 imports requests directly. It does resolve transitively through
+# zcatalyst-sdk, but a direct import belongs in the direct dependencies -- pinning
+# the SDK differently must not silently remove it.
+requests

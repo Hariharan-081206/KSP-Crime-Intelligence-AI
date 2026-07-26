@@ -1,0 +1,18 @@
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.export-btn:hover {
+  background: var(--color-accent-tint);
+  border-color: var(--color-primary);
+}

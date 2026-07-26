@@ -1,0 +1,102 @@
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100%;
+  background: var(--color-maroon-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  overflow: hidden;
+  transition: width 0.18s ease, min-width 0.18s ease, padding 0.18s ease;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sidebar-item {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  opacity: 0.75;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s, opacity 0.15s, transform 0.15s;
+}
+
+.sidebar-item:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateX(1px);
+}
+
+.sidebar-item.active {
+  background: var(--color-primary);
+  color: var(--color-maroon-dark);
+  opacity: 1;
+  border-radius: 8px;
+}
+
+.sidebar-item.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.sidebar-item.disabled:hover {
+  background: transparent;
+  transform: none;
+}
+
+/* The Case Record trigger is a <button>, not a link — reset native styling so
+   it matches the icon links, and anchor the count badge to it. */
+.sidebar-db {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sidebar-db.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sidebar-db .badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: center;
+}

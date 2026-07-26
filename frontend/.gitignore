@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Env — ignore local/secret env files. `.env.production` is intentionally
+# NOT ignored: it is a committed, secret-free placeholder consumed at build time.
+.env
+.env.local
+.env.*.local
+
+# Catalyst local project binding (machine/project-specific, created by
+# `catalyst init` / `catalyst link` — or copied from backend/.catalystrc).
+.catalystrc
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,19 @@
+.crime-map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.crime-map.compact {
+  flex: 1 1 0;
+  height: auto;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+/* The leaflet.heat canvas sits above the district pane; make it non-interactive
+   so district hover/click events reach the polygons underneath it. Purely an
+   event concern — the heat visuals are unchanged. */
+.crime-map .leaflet-heatmap-layer {
+  pointer-events: none;
+}

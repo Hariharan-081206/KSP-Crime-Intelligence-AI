@@ -1,0 +1,43 @@
+# Secrets & local env — never commit
+.env
+.env.*
+# ...except the secret-free template that documents which keys are required.
+!.env.example
+
+# Dependencies & build artifacts
+node_modules/
+.build/
+
+# Runtime logs (e.g. catalyst-debug.log from `catalyst serve`)
+*.log
+
+# Catalyst local project binding (machine/project-specific)
+.catalystrc
+
+# Stray partial vendoring (e.g. certifi-*.dist-info)
+*.dist-info/
+
+# Vendored Python site-packages. `catalyst iac:export` returns the DEPLOYED
+# bundle, so it includes every installed dependency (348 files for
+# forecastAlertJob alone). Catalyst installs from requirements.txt at deploy
+# time, and every other Python function here is tracked as source +
+# requirements.txt + catalyst-config.json only — so keep that convention and
+# version the source, not the wheels. The files stay on disk so the next deploy
+# behaves exactly like the current working one.
+functions/*/__pycache__/
+functions/*/bin/
+functions/*/*.so
+functions/*/certifi/
+functions/*/charset_normalizer/
+functions/*/idna/
+functions/*/requests/
+functions/*/urllib3/
+functions/*/zcatalyst_sdk/
+functions/*/typing_extensions.py
+
+# `catalyst iac:export` output. These archives contain the ENTIRE project
+# including every function's .env, so committing one leaks every secret at once
+# (audit P0-2 was exactly this: keys shipped inside root .zip archives).
+# Extract what you need, then delete the archive.
+export_*.zip
+*.zip
