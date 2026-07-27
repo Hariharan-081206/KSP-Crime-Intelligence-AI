@@ -662,17 +662,15 @@ All endpoints are prefixed with `/api/v1` and require a valid `Authorization: Be
 
 <div align="center">
 
-| Dashboard | Chatbot |
+| Dashboard | Heatmap |
 |:---------:|:-------:|
-| ![Dashboard](screenshots/dashboard.png) | ![Chatbot](screenshots/chatbot.png) |
+| ![Dashboard](screenshots/dashboard.jpeg) | ![Heatmap](screenshots/heatmap.jpeg) |
 
-| Prediction | Analytics |
+| Network Graph | Alerts |
 |:----------:|:---------:|
-| ![Prediction](screenshots/prediction.png) | ![Analytics](screenshots/analytics.png) |
+| ![Graph](screenshots/networkgraph.jpeg) | ![Alerts](screenshots/alerts.jpeg) |
 
-| Heatmap | Network Graph |
-|:-------:|:-------------:|
-| ![Heatmap](screenshots/heatmap.png) | ![Graph](screenshots/graph.png) |
+
 
 </div>
 
