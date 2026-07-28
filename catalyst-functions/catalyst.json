@@ -1,0 +1,21 @@
+{
+  "functions": {
+    "targets": [
+      "build_case_documents",
+      "generate_embeddings",
+      "graphNetworks",
+      "mapHotspot",
+      "predictexplain",
+      "predictforecast",
+      "profilebehavioral",
+      "search_documents",
+      "build_forecast_dataset",
+      "build_hotspot_dataset",
+      "build_network_dataset",
+      "build_behavioral_dataset",
+      "build_forecast_results"
+    ],
+    "ignore": [],
+    "source": "functions"
+  }
+}
